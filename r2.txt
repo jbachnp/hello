@@ -1,1 +1,2 @@
 bar foo 2
+this line 2
