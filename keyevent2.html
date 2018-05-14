@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<!--
+
+
+-->
+
+<html>
+<head>
+    <title>Key Events Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <!--includes-->
+    <div id="_INCLUDE_">
+        <!--third party library-->
+        <script src="moment.min.js"></script>
+        <script src="jquery-3.0.0.min.js"></script>
+    </div>
+
+    <style>
+        input:focus {
+          background-color: yellow;
+        }
+
+        input {
+            height: 3rem;
+        }
+    </style>
+
+    <!--UI-->
+	<h5>GitHub Key Test (KU)!</h5>
+    <div id="AppBody">
+        normal: <input type="text" id="uiInput" /><br />
+        readonly: <input type="text" id="uiInput2" readonly/>
+		<input type="button" id="btnClear" value="Clear Log"></input>
+        <div id="uiDevMsg" />
+    </div>
+
+    <!--app logic-->
+    <script>
+    var MyApp = MyApp || {};
+    (function (app, undefined) {
+        $("#uiInput").keyup(function (e) {
+            _log2gui("keyup:            keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+        });
+
+        $("#uiInput2").keyup(function (e) {
+            _log2gui("keyup':            keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+        });
+		
+		
+	/*
+        $("#uiInput").keydown(function (e) {
+            _log2gui("keydown: keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+        });
+
+        $("#uiInput").keypress(function (e) {
+            _log2gui("keypress:     keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+        });
+
+        $("#uiInput").keyup(function (e) {
+            _log2gui("keyup:            keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+        });
+
+
+        $("#uiInput2").keydown(function (e) {
+            _log2gui("keydown': keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+        });
+
+        $("#uiInput2").keypress(function (e) {
+            _log2gui("keypress':     keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+        });
+
+        $("#uiInput2").keyup(function (e) {
+            _log2gui("keyup':            keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+        });
+
+*/
+
+		$("#btnClear").click(function(){
+			$("#uiDevMsg").empty();
+		});
+
+        _log2gui("Yo2");
+
+        function _log2gui(s) {
+            $("#uiDevMsg").append("<pre>" + moment().format("mm:ss") + ": " + s + "</pre>");
+        }
+    })(MyApp);
+    </script>
+</body>
+</html>
