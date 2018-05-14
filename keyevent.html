@@ -37,6 +37,7 @@
     <div id="AppBody">
         normal: <input type="text" id="uiInput" /><br />
         readonly: <input type="text" id="uiInput2" readonly/>
+		<input type="text" id="btnClear" value="Clear Log"></input>
         <div id="uiDevMsg" />
     </div>
 
@@ -69,6 +70,9 @@
             _log2gui("keyup':            keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
         });
 
+		$("#btnClear").click(function(){
+			$("#uiDevMsg").empty();
+		});
 
 
 
