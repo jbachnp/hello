@@ -45,6 +45,16 @@
     <script>
     var MyApp = MyApp || {};
     (function (app, undefined) {
+		$("#uiInput").keypress(function (e) {
+            _log2gui("keypress:     keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+        });
+		
+        $("#uiInput2").keypress(function (e) {
+            _log2gui("keypress':     keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+        });
+
+		
+	/*
         $("#uiInput").keydown(function (e) {
             _log2gui("keydown: keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
         });
@@ -74,7 +84,7 @@
 			$("#uiDevMsg").empty();
 		});
 
-
+*/
 
         _log2gui("Yo2");
 
