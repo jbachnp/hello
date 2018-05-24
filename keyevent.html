@@ -34,64 +34,62 @@
 
     <!--UI-->
 	<h5>GitHub Key Test!</h5>
+    <!--UI-->
     <div id="AppBody">
         normal: <input type="text" id="uiInput" /><br />
-        readonly: <input type="text" id="uiInput2" readonly/>
-		<input type="button" id="btnClear" value="Clear Log"></input>
+        readonly: <input type="text" id="uiInput2" readonly /><br />
+        KD<input type="checkbox" id="uiIsKD" checked />
+        KP<input type="checkbox" id="uiIsKP" checked />
+        KU<input type="checkbox" id="uiIsKU" checked />
+        <br />
+        <input type="button" id="btnClear" value="Clear Log" />
         <div id="uiDevMsg" />
     </div>
 
     <!--app logic-->
     <script>
-    var MyApp = MyApp || {};
-    (function (app, undefined) {
-		$("#uiInput").keypress(function (e) {
-            _log2gui("keypress:     keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
-        });
-		
-        $("#uiInput2").keypress(function (e) {
-            _log2gui("keypress':     keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
-        });
+        var MyApp = MyApp || {};
+        (function (app, undefined) {
+            $("#uiInput").keydown(function (e) {
+                if ($("#uiIsKD").is(":checked")) _log2gui("keydown: keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+            });
 
-		
-	/*
-        $("#uiInput").keydown(function (e) {
-            _log2gui("keydown: keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
-        });
+            $("#uiInput").keypress(function (e) {
+                if ($("#uiIsKP").is(":checked")) _log2gui("keypress:     keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+            });
 
-        $("#uiInput").keypress(function (e) {
-            _log2gui("keypress:     keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
-        });
-
-        $("#uiInput").keyup(function (e) {
-            _log2gui("keyup:            keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
-        });
+            $("#uiInput").keyup(function (e) {
+                if ($("#uiIsKU").is(":checked")) _log2gui("keyup:            keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+            });
 
 
-        $("#uiInput2").keydown(function (e) {
-            _log2gui("keydown': keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
-        });
+            $("#uiInput2").keydown(function (e) {
+                if ($("#uiIsKD").is(":checked")) _log2gui("keydown': keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+            });
 
-        $("#uiInput2").keypress(function (e) {
-            _log2gui("keypress':     keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
-        });
+            $("#uiInput2").keypress(function (e) {
+                if ($("#uiIsKP").is(":checked")) _log2gui("keypress':     keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+            });
 
-        $("#uiInput2").keyup(function (e) {
-            _log2gui("keyup':            keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
-        });
+            $("#uiInput2").keyup(function (e) {
+                if ($("#uiIsKU").is(":checked")) _log2gui("keyup':            keyCode='" + e.keyCode + "'; key=[" + e.key + "]");
+            });
 
-*/
 
-		$("#btnClear").click(function(){
-			$("#uiDevMsg").empty();
-		});
 
-        _log2gui("Yo2");
+            $("#btnClear").click(function () {
+                $("#uiDevMsg").empty();
+                $("#uiInput").val("");
+                $("#uiInput2").val("");
+            });
 
-        function _log2gui(s) {
-            $("#uiDevMsg").append("<pre>" + moment().format("mm:ss") + ": " + s + "</pre>");
-        }
-    })(MyApp);
+
+            _log2gui("Yo2!!");
+
+            function _log2gui(s) {
+                $("#uiDevMsg").append("<pre>" + moment().format("mm:ss") + ": " + s + "</pre>");
+            }
+        })(MyApp);
     </script>
 </body>
 </html>
